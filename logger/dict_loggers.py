@@ -1,7 +1,7 @@
-from logger_filters import filters
-from logger_formatter import formatter
-from logger_handlers import handlers
-from loggers import loggers
+from .logger_filters import filters
+from .logger_formatter import formatter
+from .logger_handlers import handlers
+from .loggers import loggers
 
 django_logging = {
     'version': 1,
