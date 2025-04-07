@@ -34,10 +34,6 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 
-
-[tool.setuptools.dynamic]
-version = { attr = "logger.__version__" }
-
 [project.optional-dependencies]
 djangorestframework = ["djangorestframework>=3"]
 
