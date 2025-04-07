@@ -11,7 +11,7 @@ config.dictConfig(django_logging)
 
 
 class LoggerMiddleware(MiddlewareMixin):
-    logger = getLogger('logger')
+    logger = getLogger('django-logger')
     error_name = None
     mutex = threading.Lock()
 
