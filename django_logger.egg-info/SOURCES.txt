@@ -7,8 +7,8 @@ django-logger/logger_formatter.py
 django-logger/logger_handlers.py
 django-logger/loggers.py
 django-logger/middleware.py
-logger.egg-info/PKG-INFO
-logger.egg-info/SOURCES.txt
-logger.egg-info/dependency_links.txt
-logger.egg-info/requires.txt
-logger.egg-info/top_level.txt
+django_logger.egg-info/PKG-INFO
+django_logger.egg-info/SOURCES.txt
+django_logger.egg-info/dependency_links.txt
+django_logger.egg-info/requires.txt
+django_logger.egg-info/top_level.txt

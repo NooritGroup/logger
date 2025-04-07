@@ -1,5 +1,5 @@
 Metadata-Version: 2.4
-Name: logger
+Name: django-logger
 Version: 1.0.0
 Home-page: https://github.com/NooritGroup/logger
 Classifier: Programming Language :: Python :: 3
