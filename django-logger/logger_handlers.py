@@ -9,7 +9,7 @@ class RotationFileHandler(handlers.RotatingFileHandler):
 
 
 base_rotating_handler = {
-    'class': RotationFileHandler,
+    'class': 'django-logger.logger_handlers.RotationFileHandler',
     'encoding': 'UTF-8',
     'formatter': 'json',
 }

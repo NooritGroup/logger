@@ -12,15 +12,15 @@ class LevelFilter(Filter):
 
 filters = {
     'info_filter': {
-        '()': LevelFilter,
+        '()': 'django-logger.logger_filters.LevelFilter',
         'level': 'INFO',
     },
     'error_filter': {
-        '()': LevelFilter,
+        '()': 'django-logger.logger_filters.LevelFilter',
         'level': 'ERROR',
     },
     'critical_filter': {
-        '()': LevelFilter,
+        '()': 'django-logger.logger_filters.LevelFilter',
         'level': 'CRITICAL',
     },
 }

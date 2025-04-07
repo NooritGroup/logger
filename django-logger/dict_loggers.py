@@ -3,7 +3,7 @@ from .logger_formatter import formatter
 from .logger_handlers import handlers
 from .loggers import loggers
 
-django_logging = {
+django_logger = {
     'version': 1,
     'disable_existing_loggers': False,
     'filters': filters,

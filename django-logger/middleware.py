@@ -5,9 +5,9 @@ from typing import Optional, Dict
 from rest_framework import status
 from django.utils.deprecation import MiddlewareMixin
 
-from .dict_loggers import django_logging
+from .dict_loggers import django_logger
 
-config.dictConfig(django_logging)
+config.dictConfig(django_logger)
 
 
 class LoggerMiddleware(MiddlewareMixin):
