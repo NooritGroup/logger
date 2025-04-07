@@ -1,4 +1,4 @@
 MIDDLEWARES = [
     ...
-    'django-logger.middleware.LoggerMiddleware'
+    'logger.middleware.LoggerMiddleware'
 ] 
