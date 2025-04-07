@@ -18,5 +18,5 @@ Add `LoggerMiddleware` to your `MIDDLEWARES` settings:
 
     MIDDLEWARES = [
     ...
-    "logger.middleware.LoggerMiddleware"
+    "django-logger.middleware.LoggerMiddleware"
     ]
