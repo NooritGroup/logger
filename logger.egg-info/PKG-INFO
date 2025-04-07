@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: logger
+Version: 1.0.0
+Home-page: https://github.com/NooritGroup/logger
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3
+Requires-Dist: django
+Requires-Dist: djangorestframework
+Requires-Dist: jdatetime
+Requires-Dist: python-json-logger
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
