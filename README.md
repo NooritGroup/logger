@@ -4,6 +4,8 @@
 
 The django-logger library is for server logging.
 
+---
+
 # Installation
 
 Install using `pip`:
@@ -11,6 +13,8 @@ Install using `pip`:
 ```cmd
 pip install git+https://github.com/NooritGroup/logger.git
 ```
+
+---
 
 # Settings
 
