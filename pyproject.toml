@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=61.1.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "logger"
+dynamic = ['version']
+description = "This library created for django payment portal"
+dependencies = [
+    "django>=5.0",
+]
+readme = "README.md"
+authors = [
+    { name = "Amirali Fakhar", email = "fakharamirali@gmail.com" }
+]
+license = { text = "BSD 3-Clause License" }
+requires-python = ">=3.10"
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Framework :: Django :: 5.0",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+
+[tool.setuptools.dynamic]
+version = { attr = "logger.__version__" }
+
+[project.optional-dependencies]
+djangorestframework = ["djangorestframework>=3"]
+
+[project.urls]
+Repository = "https://github.com/NooritGroup/logger"
+Homepage = "https://github.com/NooritGroup/logger"
+
+[tool.setuptools.packages.find]
+include = ["logger"]
