@@ -1,5 +1,12 @@
 README.md
 setup.py
+logger/__init__.py
+logger/dict_loggers.py
+logger/logger_filters.py
+logger/logger_formatter.py
+logger/logger_handlers.py
+logger/loggers.py
+logger/middleware.py
 logger.egg-info/PKG-INFO
 logger.egg-info/SOURCES.txt
 logger.egg-info/dependency_links.txt
