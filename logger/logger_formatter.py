@@ -16,12 +16,12 @@ class JalaliJsonFormatter(JsonFormatter):
 formatter = {
     'standard': {
         '()': JalaliFormatter,
-        'format': '\nlogged:\n\t{message} - {status_code} - {url} - {method}\n\t{request_data}\n\t{response_data}\n\t{error_name}\n\t{asctime} - {levelname} - {module_name}\n',
+        'format': '\nlogged:\n\t{message} - {status_code} - {url} - {method}\n\tuser: {user}\n\trequest data: {request_data}\n\tresponse data: {response_data}\n\terror: {error_name}\n\t{asctime} - {levelname} - {module_name}\n',
         'style': '{',
     },
     'json': {
         '()': JalaliJsonFormatter,
-        'fmt': '{message} - {status_code} - {url} - {method} - {request_data} - {response_data} - {error_name} - {asctime} - {levelname} - {module_name}',
+        'fmt': '{message} - {status_code} - {url} - {method} - {user} - {request_data} - {response_data} - {error_name} - {asctime} - {levelname} - {module_name}',
         'style': '{'
     },
 }

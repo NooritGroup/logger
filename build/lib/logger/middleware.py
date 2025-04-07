@@ -31,6 +31,7 @@ class LoggerMiddleware(MiddlewareMixin):
     def process_response(self, request, response):
         request_data = LoggerMiddleware.get_request_data(request)
         base_data = {"status_code": response.status_code, "url": request.path, "method": request.method,
+                     "user": request.user,
                      "request_data": request_data, "response_data": getattr(response, "data", None),
                      "error_name": None,
                      "module_name": getattr(getattr(request.resolver_match, "func", None), "__name__",
