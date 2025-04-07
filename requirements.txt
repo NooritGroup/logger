@@ -1,4 +1,4 @@
 django
 django-rest-framework
 jdatetime
-pythonjsonlogger
+python-json-logger
