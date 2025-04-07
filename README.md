@@ -1,4 +1,8 @@
-<h1 align="center">django-logger</h1>
+<h1 align="center">
+    <b>
+        django-logger
+    </b>
+</h1>
 
 # Overview
 
