@@ -1,7 +1,5 @@
 <h1 align="center">
-    <a style="font-size: 10vw; color: rgb(0, 255, 255)" href="https://github.com/NooritGroup/logger">
-        django-logger
-    </a>
+        [![django-logger]][logger]
 </h1>
 
 ## Overview
@@ -10,9 +8,9 @@ The **django-logger** library is for server logging.
 
 **django-logger** has log three level :
 
-* <strong style="color: blue">INFO</strong>
-* <strong style="color: orange">ERROR</strong>
-* <strong style="color: red">CRITICAL</strong>
+* **INFO**
+* **ERROR**
+* **CRITICAL**
 
 ---
 
@@ -52,3 +50,5 @@ MIDDLEWARES = [
     "django-logger.middleware.LoggerMiddleware"
 ]
 ```
+
+[logger]: https://github.com/NooritGroup/logger
