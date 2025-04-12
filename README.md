@@ -1,6 +1,4 @@
-<h1 align="center">
-        [![django-logger]][logger]
-</h1>
+# [Django Logger][logger]
 
 ## Overview
 
