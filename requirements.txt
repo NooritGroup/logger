@@ -1,5 +1,5 @@
-django
-django-rest-framework
-jdatetime
-python-json-logger
-setuptools
+django==5.2.1
+djangorestframework==3.16
+jdatetime==5.2
+python-json-logger==3.3
+setuptools==80.9

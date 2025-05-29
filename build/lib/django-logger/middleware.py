@@ -1,4 +1,4 @@
-import threading
+import traceback
 from logging import getLogger, config
 from typing import Optional, Dict
 
@@ -13,7 +13,6 @@ config.dictConfig(django_logger)
 class LoggerMiddleware(MiddlewareMixin):
     logger = getLogger('django-logger')
     error_name = None
-    mutex = threading.Lock()
 
     @staticmethod
     def get_request_data(request) -> Optional[Dict]:
@@ -40,7 +39,6 @@ class LoggerMiddleware(MiddlewareMixin):
         if status.is_server_error(response.status_code):
             self.doing_log('critical', response.reason_phrase,
                            **base_data | {"error_name": self.error_name})
-            self.mutex.release()
 
         if status.is_client_error(response.status_code):
             self.doing_log('error', response.reason_phrase,
@@ -52,6 +50,5 @@ class LoggerMiddleware(MiddlewareMixin):
         return response
 
     def process_exception(self, request, exception):
-        self.mutex.acquire()
-        self.error_name = f"{type(exception).__name__}: {str(exception)}"
+        self.error_name = traceback.format_exc()
         return None

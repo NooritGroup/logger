@@ -45,7 +45,7 @@ Add `LoggerMiddleware` to your `MIDDLEWARES` settings:
 ```python
 MIDDLEWARES = [
     ...,
-    "django-logger.middleware.LoggerMiddleware"
+    "django_logger.middleware.LoggerMiddleware"
 ]
 ```
 
