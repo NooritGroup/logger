@@ -1,11 +1,11 @@
-import os
 import traceback
 import re
 from logging import getLogger, config
 from typing import Optional, Dict
 
-from rest_framework import status
+from django.conf import settings
 from django.utils.deprecation import MiddlewareMixin
+from rest_framework import status
 
 from .dict_loggers import django_logger
 
@@ -84,8 +84,8 @@ class LoggerMiddleware(MiddlewareMixin):
                      "user": request.user,
                      "request_data": request_data, "response_data": getattr(response, "data", None),
                      "error_name": None,
-                     "module_name": re.sub(os.getcwd(), '',
-                                           getattr(getattr(request.resolver_match, "func", None), "__path__",
+                     "module_name": re.sub(settings.BASE_DIR, '',
+                                           getattr(getattr(request.resolver_match, "func", None), "__file__",
                                                    None))}
 
         if status.is_server_error(response.status_code):
