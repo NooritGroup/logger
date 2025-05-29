@@ -1,3 +1,4 @@
+import os
 import traceback
 import re
 from logging import getLogger, config
@@ -11,7 +12,7 @@ from .dict_loggers import django_logger
 config.dictConfig(django_logger)
 
 
-def mask_sensitive_data(data, mask_api_parameters=False, parameters=['password', 'token', 'access', 'refresh']):
+def mask_sensitive_data(data, mask_api_parameters=False, parameters=None):
     """
     Masks or removes sensitive data such as passwords or tokens from dictionaries or URL strings.
 
@@ -28,6 +29,8 @@ def mask_sensitive_data(data, mask_api_parameters=False, parameters=['password',
     dict, str, list
         The sanitized version of the input data, with sensitive values replaced by "***FILTERED***".
     """
+    if parameters is None:
+        parameters = ['password', 'token', 'access', 'refresh']
     if type(data) is not dict:
         # Handle query string case if enabled
         if mask_api_parameters and type(data) is str:
@@ -81,8 +84,9 @@ class LoggerMiddleware(MiddlewareMixin):
                      "user": request.user,
                      "request_data": request_data, "response_data": getattr(response, "data", None),
                      "error_name": None,
-                     "module_name": getattr(getattr(request.resolver_match, "func", None), "__name__",
-                                            None)}
+                     "module_name": re.sub(os.getcwd(), '',
+                                           getattr(getattr(request.resolver_match, "func", None), "__path__",
+                                                   None))}
 
         if status.is_server_error(response.status_code):
             self.doing_log('critical', response.reason_phrase,
