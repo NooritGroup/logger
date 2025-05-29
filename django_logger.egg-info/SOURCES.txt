@@ -1,0 +1,14 @@
+README.md
+setup.py
+django_logger/__init__.py
+django_logger/dict_loggers.py
+django_logger/logger_filters.py
+django_logger/logger_formatter.py
+django_logger/logger_handlers.py
+django_logger/loggers.py
+django_logger/middleware.py
+django_logger.egg-info/PKG-INFO
+django_logger.egg-info/SOURCES.txt
+django_logger.egg-info/dependency_links.txt
+django_logger.egg-info/requires.txt
+django_logger.egg-info/top_level.txt

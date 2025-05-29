@@ -1,0 +1,4 @@
+django
+djangorestframework
+jdatetime
+python-json-logger
