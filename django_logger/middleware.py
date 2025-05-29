@@ -80,13 +80,11 @@ class LoggerMiddleware(MiddlewareMixin):
 
     def process_response(self, request, response):
         request_data = LoggerMiddleware.get_request_data(request)
-        path_file = getattr(getattr(request.resolver_match, "func", None), "__module__", None)
         base_data = {"status_code": response.status_code, "url": request.path, "method": request.method,
                      "user": request.user,
                      "request_data": request_data, "response_data": getattr(response, "data", None),
                      "error_name": None,
-                     "module_name": path_file.replace('\\', '/')
-                     .replace(str(settings.BASE_DIR).replace('\\', '/'), '') if path_file else None}
+                     "module_name": getattr(getattr(request.resolver_match, "func", None), "__module__", None)}
 
         if status.is_server_error(response.status_code):
             self.doing_log('critical', response.reason_phrase,
