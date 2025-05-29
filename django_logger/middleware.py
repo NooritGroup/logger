@@ -84,7 +84,7 @@ class LoggerMiddleware(MiddlewareMixin):
                      "user": request.user,
                      "request_data": request_data, "response_data": getattr(response, "data", None),
                      "error_name": None,
-                     "module_name": re.sub(settings.BASE_DIR, '',
+                     "module_name": re.sub(str(settings.BASE_DIR), '',
                                            getattr(getattr(request.resolver_match, "func", None), "__file__",
                                                    None))}
 
