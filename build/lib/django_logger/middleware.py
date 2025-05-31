@@ -3,13 +3,19 @@ import re
 from logging import getLogger, config
 from typing import Optional, Dict
 
-from django.conf import settings
+from django.contrib.auth.models import AnonymousUser
 from django.utils.deprecation import MiddlewareMixin
 from rest_framework import status
 
 from .dict_loggers import django_logger
 
 config.dictConfig(django_logger)
+
+allowed_keys = (
+    'REMOTE_ADDR', 'HTTP_USER_AGENT', 'HTTP_HOST', 'HTTP_REFERER', 'SERVER_NAME', 'SERVER_PORT',
+    'HTTP_ACCEPT',
+    'HTTP_ACCEPT_LANGUAGE', 'HTTP_COOKIE', 'SCRIPT_NAME'
+)
 
 
 def mask_sensitive_data(data, mask_api_parameters=False, parameters=None):
@@ -73,7 +79,8 @@ class LoggerMiddleware(MiddlewareMixin):
             request_data = request.POST.dict()
         else:
             request_data = getattr(request, request.method).dict()
-        return request_data | request.FILES.dict()
+        return request_data | request.FILES.dict() | {'headers': dict(request.headers)} | {
+            'META': {key: value for key, value in request.META.items() if key in allowed_keys}}
 
     def doing_log(self, level, msg, **kwargs) -> None:
         getattr(self.logger, level)(msg, extra=mask_sensitive_data(kwargs, mask_api_parameters=True))
@@ -81,7 +88,7 @@ class LoggerMiddleware(MiddlewareMixin):
     def process_response(self, request, response):
         request_data = LoggerMiddleware.get_request_data(request)
         base_data = {"status_code": response.status_code, "url": request.path, "method": request.method,
-                     "user": request.user,
+                     "user": request.user.pk if request.user.is_authenticated else AnonymousUser.__name__,
                      "request_data": request_data, "response_data": getattr(response, "data", None),
                      "error_name": None,
                      "module_name": getattr(getattr(request.resolver_match, "func", None), "__module__", None)}
