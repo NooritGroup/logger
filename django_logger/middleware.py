@@ -1,9 +1,10 @@
-import traceback
 import re
+import traceback
 from logging import getLogger, config
 from typing import Optional, Dict
 
 from django.contrib.auth.models import AnonymousUser
+from django.conf import settings
 from django.utils.deprecation import MiddlewareMixin
 from rest_framework import status
 
@@ -11,10 +12,9 @@ from .dict_loggers import django_logger
 
 config.dictConfig(django_logger)
 
-allowed_keys = (
-    'REMOTE_ADDR', 'HTTP_USER_AGENT', 'HTTP_HOST', 'HTTP_REFERER', 'SERVER_NAME', 'SERVER_PORT',
-    'HTTP_ACCEPT',
-    'HTTP_ACCEPT_LANGUAGE', 'HTTP_COOKIE', 'SCRIPT_NAME'
+meta_allowed_keys = getattr(
+    settings, 'META_ALLOWED_KEYS',
+    ('REMOTE_ADDR', 'HTTP_USER_AGENT', 'HTTP_HOST', 'HTTP_REFERER', 'SERVER_NAME', 'HTTP_ACCEPT')
 )
 
 
@@ -80,7 +80,7 @@ class LoggerMiddleware(MiddlewareMixin):
         else:
             request_data = getattr(request, request.method).dict()
         return request_data | request.FILES.dict() | {'headers': dict(request.headers)} | {
-            'META': {key: value for key, value in request.META.items() if key in allowed_keys}}
+            'META': {key: value for key, value in request.META.items() if key in meta_allowed_keys}}
 
     def doing_log(self, level, msg, **kwargs) -> None:
         getattr(self.logger, level)(msg, extra=mask_sensitive_data(kwargs, mask_api_parameters=True))
