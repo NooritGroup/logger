@@ -22,7 +22,7 @@ max_bytes_info = max_bytes.get('MAX_BYTES_INFO', 2 ** 20)
 max_bytes_error = max_bytes.get('MAX_BYTES_ERROR', 2 ** 20)
 max_bytes_critical = max_bytes.get('MAX_BYTES_CRITICAL', 10 * (2 ** 20))
 
-encoding = log_data.get('LOG_ENCODING', 'UTF-8')
+encoding = log_data.get('LOG_ENCODING', 'UTF-32')
 
 
 class RotationFileHandler(handlers.RotatingFileHandler):
