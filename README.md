@@ -74,7 +74,7 @@ DJANGO_LOGGER_DATA = {
 
 ## Output
 
-Logs save in the log folder as json by down structure:
+Logs save in the log_folder as json by down structure:
 
 ```
 project_folder/
@@ -103,7 +103,7 @@ project_folder/
 
 And print in the `Console` by down format:
 
-```python
+```pycon
 logged:
 	{Message} - {Status Code} - {Url} - {Path} - {Method}
 	user: {User}
