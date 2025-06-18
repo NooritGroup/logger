@@ -1,1 +1,1 @@
-django-logger
+django_logger
