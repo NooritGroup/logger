@@ -76,36 +76,34 @@ DJANGO_LOGGER_DATA = {
 
 Logs save in the log folder as json by down structure:
 
-```html
+```
 project_folder/
-&#x251C;&#x2500; app/
-&#x2502;&nbsp;&#x251C;&#x2500; __init__.py
-&#x2502;&nbsp;&#x251C;&#x2500; admin.py
-&#x2502;&nbsp;&#x251C;&#x2500; apps.py
-&#x2502;&nbsp;&#x251C;&#x2500; views.py
-&#x2502;&nbsp;&#x251C;&#x2500; forms.py
-&#x2502;&nbsp;&#x251C;&#x2500; models.py
-&#x2502;&nbsp;&#x2514;&#x2500; urls.py
-&#x251C;&#x2500; settings_folder/
-&#x2502;&nbsp;&#x251C;&#x2500; __init__.py
-&#x2502;&nbsp;&#x251C;&#x2500; asgi.py
-&#x2502;&nbsp;&#x251C;&#x2500; settings.py
-&#x2502;&nbsp;&#x251C;&#x2500; urls.py
-&#x2502;&nbsp;&#x2514;&#x2500; wsgi.py
-<strong>
-&#x251C;&#x2500; log_folder/
-&#x2502;&nbsp;&#x251C;&#x2500; Information/
-&#x2502;&nbsp;&#x2502;&nbsp;&#x2514;&#x2500; INFO.log
-&#x2502;&nbsp;&#x251C;&#x2500; Errors/
-&#x2502;&nbsp;&#x2502;&nbsp;&#x2514;&#x2500; ERROR.log
-&#x2502;&nbsp;&#x2514;&#x2500; Critical/
-&#x2502;&nbsp;&nbsp;&nbsp;&#x2514;&#x2500; CRITICAL.log
-</strong>
+├─ app/
+│ ├─ __init__.py
+│ ├─ admin.py
+│ ├─ apps.py
+│ ├─ views.py
+│ ├─ forms.py
+│ ├─ models.py
+│ └─ urls.py
+├─ settings_folder/
+│ ├─ __init__.py
+│ ├─ asgi.py
+│ ├─ settings.py
+│ ├─ urls.py
+│ └─ wsgi.py
+├─ log_folder/
+│ ├─ Information/
+│ │ └─ INFO.log
+│ ├─ Errors/
+│ │ └─ ERROR.log
+│ └─ Critical/
+│   └─ CRITICAL.log
 ```
 
 And print in the `Console` by down format:
 
-```pycon
+```python
 logged:
 	{Message} - {Status Code} - {Url} - {Path} - {Method}
 	user: {User}
